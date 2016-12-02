@@ -1,0 +1,113 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            html{
+                position: relative;
+            }
+            .container {
+                font-family: '微软雅黑';
+                color: blue;
+                width: 600px;
+                height: 400px;
+                margin: 50px auto;
+                background: no-repeat url('./images/sdbg-1.jpg');
+                background-size: 600px 400px;
+                background-position: center;
+            }
+            .headline{
+                font-family: '楷体';
+                font-weight: bold;
+            }
+            .content{
+                padding-top: 100px;
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+            .line{
+                text-indent: 2em;
+                padding-bottom: 2px;
+                border-bottom-color: #999;
+                border-bottom-width: 1px;
+                border-bottom-style: solid;
+            }
+            .lastline{
+                position: relative;
+                top: -30px;
+                float: right;
+                margin-right: 150px;
+            }
+            .luokuan{
+                color: blue;
+            }
+            .myname{
+                color: green;
+                font-weight: bold;
+                font-family: '楷体';
+                font-size: 2em;
+                font-style: italic;
+            }
+            .audio-control{
+                float: right;
+                cursor: pointer;
+            }
+            #audio_button{
+                height: 70px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <p class="line headline">
+                    亲爱的爸爸:     
+                    <span class="audio-control"><img src="images/button_play.png" id="audio_button"></span>             
+                </p>
+                <p class="line">
+                    我是您的孩子柯南,非常感谢您对我无微不至的关怀,
+                </p>
+                <p class="line">
+                    正是因为有您，我得以健康快乐地成长;
+                </p>
+                <p class="line">
+                    也正是因为有您，我永远感到安全,不会感到害怕。。。   
+                </p>
+                <p class="line">
+                    马上要过圣诞节了，祝您：
+                </p>
+                <p class="line">
+                    身体健康，圣诞快乐!
+                </p>
+                <p class="line lastline"><span class="luokuan">您的儿子</span><span class="myname">柯南</span></p>
+            </div>
+        </div>
+        <audio id="audio" src="media/JingleBells.mp3"></audio>
+        <script>
+        	function addEvent(el,event,handler) {
+        	    if (el.addEventListener){
+        	        el.addEventListener(event,handler,false);
+        	    }
+        	    else{
+        	        el.attachEvent("on"+event, handler);
+        	    }
+        	}
+            var playing = false
+            var audioControl = document.getElementById('audio')
+            var audioButton = document.getElementById('audio_button')
+            addEvent(audioButton,'click',function(e){
+                if(playing){
+                    playing = false
+                    audioControl.pause()
+                    audioButton.src="images/button_play.png"        
+                }else{
+                    playing = true
+                    audioControl.play()
+                    audioButton.src="images/button_stop.png"    
+                }
+            })
+        </script>
+    </body>
+</html>
